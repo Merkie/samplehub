@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(cuid())
+  name           String
+  authentication String
+  created_at     DateTime @default(now())
+  updated_at     DateTime @default(now())
+}
+
+model Resource {
+  id           String   @id @default(cuid())
+  uploader_id  String   @default("anonymous")
+  src          String // url for the resource's content
+  thumbnail    String   @default("#") // thumbnail that'll be displayed on the site
+  name         String
+  filename     String
+  content_type String // Sample, preset, etc
+  bpm          Int      @default(-1) // Only used by samples
+  key          String   @default("#") // Only used by samples
+  software     String   @default("#") // Only used by presets
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
+}
+
+model Collection {
+  id          String   @id @default(cuid())
+  owner_id    String
+  name        String
+  description String
+  thumbnail   String   @default("#") // Thumbnail that'll be displayed on the site
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}
+
+model Collection_Resource {
+  id            String   @id @default(cuid())
+  collection_id String
+  resource_id   String
+  created_at    DateTime @default(now())
+}
