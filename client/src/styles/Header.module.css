@@ -27,6 +27,7 @@
     border: none;
     cursor: pointer;
     transition-duration: .1s;
+    font-size: 15px;
 }
 
 .discordBtn:hover {
