@@ -36,7 +36,10 @@ const upload = multer({
 import { processDownload } from './filehandling';
 
 // Database
-import { queryResources } from './database';
+import { queryResources, fetch_user_from_discord, create_user_from_discord } from './database';
+
+// Auth
+import { auth } from './auth';
 
 // Watch the downloads folder and call processDownload when a new file is added.
 fs.watch('./downloads/process', (event: String, filename: String) => {
@@ -72,6 +75,19 @@ app.get('/search/:query', (req: Request, res: Response) => {
 
 app.post('/upload', upload.single('fileupload'), (req: Request, res: Response) => {
   res.send('File uploaded!');
+});
+
+app.post('/login', (req: Request, res: Response) => {
+  // Try and fetch the user from the database
+  fetch_user_from_discord(req.body.user.id).then(result => {
+    // If no user is found, create one
+    if(!result) {
+      create_user_from_discord({
+        name: req.body.user.username+'#'+req.body.user.discriminator,
+        discord_id: req.body.user.id
+      });
+    }
+  });
 });
 
 app.listen(port, () => {

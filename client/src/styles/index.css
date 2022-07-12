@@ -14,6 +14,7 @@ body {
   --blue-4: #4C90F0; /* Brand color */
 
   background-color: var(--black);
+  color: white;
 
   font-family: 'Arial', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

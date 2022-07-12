@@ -11,6 +11,11 @@ export interface Resource {
 	thumbnail: string;
 }
 
+export interface User {
+	name: string;
+	discord_id: string;
+}
+
 export const createResource = async (sample: Resource) => {
 	const newSample = await prisma.resource.create({
 		data: sample,
@@ -29,3 +34,19 @@ export const queryResources = async (query: string) => {
     
     return result;
 };
+
+export const fetch_user_from_discord = async(discord_id: string) => {
+	const result = await prisma.user.findFirst({
+		where: {
+			discord_id: discord_id,
+		}
+	});
+	return result;
+}
+
+export const create_user_from_discord = async(userObj: User) => {
+	const result = await prisma.user.create({
+		data: userObj
+	});
+	return result;
+}
