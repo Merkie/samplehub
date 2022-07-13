@@ -6,6 +6,8 @@ import createLocalStore from '@solid-primitives/local-store';
 
 // Components
 import Header from '../components/Header';
+import MainContent from '../components/MainContent';
+
 
 import { fetch_discord_token, refresh_token, fetch_user_info, login_user } from '../API';
 
@@ -64,9 +66,7 @@ const App: Component = () => {
 	return (
 		<div class={styles.App}>
 			<Header deauth_user={deauth_user} authorized={authorized} />
-			<Show when={userData().hasOwnProperty('id')}>
-				<p>{userData().username + '#' + userData().discriminator}</p>
-			</Show>
+			<MainContent />
 		</div>
 	);
 };

@@ -17,6 +17,7 @@
 	color: var(--black);
 	padding: 5px;
 	border-radius: 5px;
+    margin-left: 5px;
 }
 
 .discordBtn {
@@ -33,4 +34,83 @@
 .discordBtn:hover {
     border-radius: 10px;
     background-color: #4c57d3;
+}
+
+.menuItems {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+
+.userIcon {
+    border: 1px white solid;
+    padding: 5px 8px;
+    border-radius: 50%;
+    transition-duration: .1s;
+    cursor: pointer;
+}
+
+.upload_btn {
+    background-color: var(--blue-4);
+    padding: 8px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition-duration: .1s;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.upload_btn:hover {
+    border-radius: 10px;
+    background-color: var(--blue-3);
+}
+
+.upload_btn i {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.userIcon:hover {
+    color: var(--black);
+    background-color: white;
+}
+
+.userActions {
+    color: white !important;
+    font-size: 16px;
+    position: absolute;
+    transform: translateX(calc(-100% + 20px)) translateY(10px);
+    min-width: 170px;
+    z-index: 999;
+
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--surface-5);
+    background-color: var(--surface-3);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.userActions p {
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    display: flex;
+    width: calc(100%-10px);
+    justify-content: space-between;
+}
+
+.userActions p:hover {
+    background-color: white;
+    color: var(--surface-1);
+}
+
+.invisibleOverlay {
+    position: absolute;
+    width: 120vw;
+    height: 95vh;
+    transform: translateX(-99%) translateY(-50px);
 }

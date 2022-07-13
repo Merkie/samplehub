@@ -2,6 +2,8 @@
   margin: 0;
 }
 
+
+
 body {
 
   --black: #111418;
@@ -11,7 +13,11 @@ body {
   --surface-4: #383E47;
   --surface-5: #404854;
   --gray-1: #5F6B7C;
+  --blue-3: #2D72D2; /* Brand color */
   --blue-4: #4C90F0; /* Brand color */
+
+  --red-1: #8E292C;
+  --red-4: #CD4246;
 
   background-color: var(--black);
   color: white;

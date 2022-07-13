@@ -1,0 +1,10 @@
+.Sample {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--surface-5);
+    background-color: var(--surface-3);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    width: calc(100% - 60px);
+    margin-left: 20px;
+}

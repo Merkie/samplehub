@@ -1,0 +1,266 @@
+.MainContent {
+    position: relative;
+    margin-left: 20px;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 83px - 20px);
+}
+
+.leftCol {
+    position: absolute;
+    height: 100%;
+    width: 250px;
+}
+
+.rightContent {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 270px);
+    right: 0;
+}
+
+.leftCol, .rightContent, .collectionItem {
+    background-color: var(--surface-1);
+    border-radius: 5px;
+    border: 1px solid var(--surface-2);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.leftColDecorImage {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 5px;
+    width: calc(250px - 40px);
+    height: calc(250px - 40px);
+    overflow: hidden;
+}
+
+.leftColDecorImage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.leftColDecorImage h1 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: var(--surface-2);
+    font-weight: 900;
+}
+
+.trendingTab {
+    position: absolute;
+    left: 20px;
+    width: calc(100% - 40px);
+    bottom: 250px;
+    overflow-Y: scroll;
+    overflow-X: hidden;
+    scrollbar-width: none;
+}
+
+.collectionItem {
+    background-color: var(--black);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.collectionItem img {
+    width: 25px;
+    height: 25px;
+}
+
+.leftColMainPanel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    min-height: 250px;
+}
+
+.navigator {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navigator b {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.navigator_active {
+    border-bottom: 2px solid var(--blue-4);
+}
+
+.navigator div {
+    cursor: pointer;
+    width: calc(100%-10px);
+    text-align: center;
+    padding: 10px;
+    background-color: var(--blue-4);
+    border-radius: 5px;
+}
+
+.mobile_navigation {
+    display: none;
+}
+
+.mobile_navigation h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.mobile_navigation i {
+    transform: translateY(2px);
+    font-size: 20px;
+}
+
+.mobileGallery {
+    position: absolute;
+    display: flex;
+    top: 20px;
+    right: 20px;
+    width: calc(100% - 270px);
+    height: calc(100% - 40px);
+    border-radius: 5px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.mobileGallery img {
+    object-fit: cover;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.search_ribbon {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--surface-5);
+}
+
+.search_input {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    border: 1px solid var(--black);
+    padding: 10px;
+    font-size: 14px;
+    background-color: white;
+    font-size: 16px;
+    color: var(--black);
+    flex-grow: 1;
+}
+
+.search_input input {
+    font-size: 16px;
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+.search_input input:focus {
+    outline: none;
+}
+
+.search_input i {
+    color: var(--black);
+    margin-right: 10px;
+}
+
+.dropdown_selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--surface-5);
+    background-color: var(--surface-3);
+    cursor: pointer;
+}
+
+.mobile_search_controls {
+    display: none;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: var(--surface-3);
+    padding: 10px 13px;
+    border: 1px solid var(--surface-5);
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .leftColDecorImage {
+        display: none;
+    }
+
+    .leftCol {
+        width: 100%;
+        height: 250px;
+    }
+
+    .rightContent {
+        width: 100%;
+        height: calc(100% - 270px);
+        bottom: 0;
+    }
+
+    .trendingTab {
+        height: calc(100% - 40px);
+        bottom: 20px;
+        width: 210px;
+    }
+
+    .leftColMainPanel {
+        left: 250px;
+        min-height: 0px;
+        height: calc(100% - 40px);
+        width: calc(100% - 270px);
+    }
+
+    .navigator {
+        display: none;
+    }
+
+    .mobile_navigation {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .search_ribbon {
+        margin-top: 50px;
+    }
+
+    .dropdown_selector {
+        display: none;
+    }
+
+    .mobile_search_controls {
+        display: block;
+    }
+}
+
+@media (max-width: 650px) {
+    .leftCol {
+        display: none;
+    }
+    .rightContent {
+        top: 0;
+    }
+}
