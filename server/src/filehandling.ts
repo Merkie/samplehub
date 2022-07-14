@@ -10,7 +10,6 @@ const { v4: uuidv4 } = require('uuid');
 import { Resource, createResource } from './database';
 
 // S3
-import { uploadFile } from './s3';
 
 // Configs
 const acceptedExtensions = ['wav', 'mp3'];
