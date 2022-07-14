@@ -9,7 +9,7 @@ dotenv.config();
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 const app: Express = express();
-app.use(cors()); // Cross origin requests
+app.use('*', cors()); // Cross origin requests
 app.use(express.json()); // For parsing JSON
 app.use(express.urlencoded({ extended: true })); // For parsing URL encoded data
 const port = process.env.PORT;
