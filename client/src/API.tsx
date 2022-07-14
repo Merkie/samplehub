@@ -1,12 +1,8 @@
 import crypto from 'crypto-js';
 import axios from 'axios';
-import { client_id, client_secret, site_secret } from './secret';
+import { client_id, client_secret, site_secret, redirect_uri, api_uri } from './secret';
 
 const discord_uri = 'https://discord.com/api/oauth2';
-const api_uri = 'http://localhost:1337';
-const redirect_uri = 'http://localhost:3000';
-// const api_uri = 'http://159.223.200.254:1337';
-// const redirect_uri = 'https://ldsth.ink';
 
 const _post = async (url: string, data: any) => {
 	const params = new URLSearchParams();
