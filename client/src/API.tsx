@@ -15,6 +15,7 @@ const _post = async (url: string, data: any) => {
 		body: params,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
+			'Access-Control-Allow-Origin': '*',
 			Accept: 'application/json',
 		},
 	});
@@ -77,6 +78,7 @@ export const uploadFile = async (files: any[]) => {
 			.post(api_uri + '/upload', formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
+					'Access-Control-Allow-Origin': '*',
 				},
 			})
 			.then((response) => {
@@ -90,6 +92,6 @@ export const uploadFile = async (files: any[]) => {
 };
 
 export const queryApi = async (query: string) => {
-	const response = await axios.get(`${api_uri}/search/${query}`);
+	const response = await axios.get(`${api_uri}/search/${query}`, { headers: { 'Access-Control-Allow-Origin': '*' } });
 	return response.data.splice(0,25);
 };
