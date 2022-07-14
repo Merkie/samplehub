@@ -9,11 +9,9 @@ dotenv.config();
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 const app: Express = express();
-app.use(cors({ origin: ["http://localhost:3000", "https://localhost:3000", "https://samplehub.cc"] })); // Cross origin requests
+app.use(cors({ origin: ["http://localhost:3000", "https://samplehub.cc"] })); // Cross origin requests
 app.use(express.json()); // For parsing JSON
-app.use(express.urlencoded({ extended: true })); // For parsing URL encoded data
-// @ts-ignore
-app.options('*', cors())
+app.use(express.urlencoded({ extended: true })); // For parsing URL encoded data// @ts-ignore
 const port = process.env.PORT;
 
 // Multer, Express middleware

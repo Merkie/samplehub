@@ -15,7 +15,6 @@ const _post = async (url: string, data: any) => {
 		body: params,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
-			'Access-Control-Allow-Origin': '*',
 			Accept: 'application/json',
 		},
 	});
@@ -78,7 +77,6 @@ export const uploadFile = async (files: any[]) => {
 			.post(api_uri + '/upload', formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
-					'Access-Control-Allow-Origin': '*',
 				},
 			})
 			.then((response) => {
