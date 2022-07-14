@@ -12,6 +12,8 @@ const app: Express = express();
 app.use(cors({ origin: ["http://localhost:3000", "https://localhost:3000", "https://samplehub.cc"] })); // Cross origin requests
 app.use(express.json()); // For parsing JSON
 app.use(express.urlencoded({ extended: true })); // For parsing URL encoded data
+// @ts-ignore
+app.options('*', cors())
 const port = process.env.PORT;
 
 // Multer, Express middleware
@@ -55,6 +57,7 @@ fs.watch('./downloads/process', (event: String, filename: String) => {
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello from Express and TypeScript!');
 });
+
 
 app.get('/search/:query', (req: Request, res: Response) => {
   // Because SQL is stupid, we have to do this string replacement.
