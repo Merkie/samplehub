@@ -32,8 +32,9 @@ const Header: Component<HeaderProps> = (props) => {
 					<button onClick={() => window.location.assign(discord_login_url)} class={styles.discordBtn}>
 						<i class="bi bi-discord"></i> Login with Discord
 					</button>
+					<button onClick={() => window.location.assign(discord_login_url)} class={styles.discordBtnMobile}><i class="bi bi-discord"></i></button>
 				</Show>
-				<Show when={props.authorized()}>
+				<Show when={!props.authorized()}>
 					<div class={styles.menuItems}>
                         <div onClick={() => setUserActionMenuVisible(!userActionMenuVisible())} class={styles.userIcon}>
 						    <i class="bi bi-person-fill"></i>

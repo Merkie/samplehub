@@ -9,6 +9,9 @@ const { v4: uuidv4 } = require('uuid');
 // Database
 import { Resource, createResource } from './database';
 
+// S3
+import { uploadFile } from './s3';
+
 // Configs
 const acceptedExtensions = ['wav', 'mp3'];
 const thumbnailExtensions = ['png', 'jpg', 'jpeg'];
@@ -99,9 +102,10 @@ export const processDownload = async (filename: String) => {
 			const newPath = `${outputDir}/${uuidv4()}.${filename.split('.').pop()}`;
 
 			// Move the file
-			fs.rename(fullPath, newPath, (err) => {
-				if (err) throw err;
-			});
+			console.log(await uploadFile({ originalname: filename, path: fullPath}));
+			// fs.rename(fullPath, newPath, (err) => {
+			// 	if (err) throw err;
+			// });
 
 			// Add resource to database
 			let newSample: Resource = {
@@ -116,6 +120,6 @@ export const processDownload = async (filename: String) => {
 		}
 
 		// Remove the file from the downloads folder
-		fs.rmSync(fullPath, { force: true });
+		// fs.rmSync(fullPath, { force: true });
 	}
 };

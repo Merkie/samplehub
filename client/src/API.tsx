@@ -5,6 +5,8 @@ import { client_id, client_secret, site_secret } from './secret';
 const discord_uri = 'https://discord.com/api/oauth2';
 const api_uri = 'http://localhost:1337';
 const redirect_uri = 'http://localhost:3000';
+// const api_uri = 'http://159.223.200.254:1337';
+// const redirect_uri = 'https://ldsth.ink';
 
 const _post = async (url: string, data: any) => {
 	const params = new URLSearchParams();
@@ -59,7 +61,7 @@ const new_session = async () => {
 
 export const login_user = async (user: any) => {
 	new_session().then(async (session) => {
-		let response = await fetch('http://localhost:1337/login', {
+		let response = await fetch(api_uri+'/login', {
 			method: 'POST',
 			body: JSON.stringify({ token: session, user: user }),
 			headers: {
@@ -93,5 +95,5 @@ export const uploadFile = async (files: any[]) => {
 
 export const queryApi = async (query: string) => {
 	const response = await axios.get(`${api_uri}/search/${query}`);
-	return response;
+	return response.data.splice(0,25);
 };

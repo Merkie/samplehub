@@ -3,6 +3,7 @@
     margin-left: 20px;
     width: calc(100vw - 40px);
     height: calc(100vh - 83px - 20px);
+    overflow: hidden;
 }
 
 .leftCol {
@@ -55,8 +56,8 @@
     left: 20px;
     width: calc(100% - 40px);
     bottom: 250px;
-    overflow-Y: scroll;
-    overflow-X: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-width: none;
 }
 
@@ -102,7 +103,7 @@
 
 .navigator div {
     cursor: pointer;
-    width: calc(100%-10px);
+    width: calc(100% - 10px);
     text-align: center;
     padding: 10px;
     background-color: var(--blue-4);
@@ -203,6 +204,13 @@
     cursor: pointer;
 }
 
+.searchResultsContainer {
+    height: calc(100% - 88px);
+    width: 100%;
+    overflow-y:auto;
+    overflow-x: hidden;
+}
+
 @media (max-width: 1000px) {
     .leftColDecorImage {
         display: none;
@@ -262,5 +270,11 @@
     }
     .rightContent {
         top: 0;
+        height: 100%;
+    }
+
+    .MainContent {
+        width: 100%;
+        margin-left: 0;
     }
 }

@@ -99,7 +99,7 @@
     padding: 5px;
     padding-left: 10px;
     display: flex;
-    width: calc(100%-10px);
+    width: calc(100% - 10px);
     justify-content: space-between;
 }
 
@@ -113,4 +113,32 @@
     width: 120vw;
     height: 95vh;
     transform: translateX(-99%) translateY(-50px);
+}
+
+.discordBtnMobile {
+    display: none;
+    border: none;
+    background-color: transparent;
+    font-size: 35px;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background-color: #4c57d3;
+    border: 1px solid #7782fa;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+    transition-duration: .1s;
+}
+
+.discordBtnMobile:hover {
+    border-radius: 10px;
+}
+
+@media (max-width: 650px) {
+    .discordBtn {
+        display: none;
+    }
+    .discordBtnMobile {
+        display: block;
+    }
 }

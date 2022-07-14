@@ -39,9 +39,8 @@ const MainContent: Component = () => {
 	const updateQuery = async () => {
 		setSearchQuery(searchinputref!.value);
 		const results = await queryApi(searchQuery());
-		setSearchResults(results.data);
-		console.log(searchResults());
-	}
+		setSearchResults(results);
+	};
 
 	return (
 		<div class={styles.MainContent}>
@@ -101,7 +100,12 @@ const MainContent: Component = () => {
 				<div class={styles.search_ribbon}>
 					<div class={styles.search_input}>
 						<i class="bi bi-search"></i>
-						<input ref={searchinputref} onInput={updateQuery} type="text" placeholder="Search packs, samples, and presets" />
+						<input
+							ref={searchinputref}
+							onInput={updateQuery}
+							type="text"
+							placeholder="Search packs, samples, and presets"
+						/>
 					</div>
 					<div class={styles.dropdown_selector}>
 						<p>Key</p>
@@ -119,11 +123,9 @@ const MainContent: Component = () => {
 						<i class="bi bi-sliders"></i>
 					</div>
 				</div>
-				<For each={searchResults()}>
-					{(result: any, i: any) => (
-						<SampleListing name={result.name} />
-					)}
-				</For>
+				<div class={styles.searchResultsContainer}>
+					<For each={searchResults()}>{(result: any, i: any) => <SampleListing {...result} />}</For>
+				</div>
 			</div>
 		</div>
 	);
