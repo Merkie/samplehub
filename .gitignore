@@ -1,6 +1,0 @@
-**/.DS_Store
-server/dist
-server/public/*
-server/downloads/process/*
-server/downloads/unzip/*
-server/.env
