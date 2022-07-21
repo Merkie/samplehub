@@ -1,0 +1,143 @@
+.filter-panel {
+    /* Position the filter panel */
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    /* Set the width and height */
+    padding: var(--gutter-md);
+    height: calc(100% - var(--gutter-md)*2 );
+    width: 250px;
+
+    /* Styling */
+    border-radius: var(--gutter-sm);
+    border-left: 1px solid var(--surface-3);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+
+    /* Inner elements */
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+}
+
+/* Inner surface element */
+.filter-inner-surface {
+    background-color: var(--surface-2);
+    padding: var(--gutter-sm);
+    border-radius: var(--gutter-sm);
+    border: 1px solid var(--surface-3);
+}
+
+/* Filter buttons */
+.filter-panel button {
+    border: none;
+    background-color: var(--surface-3);
+    color: white;
+    padding: var(--gutter-sm);
+    border-radius: var(--gutter-sm);
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.filter-btn-selected, .key-selected {
+    background-color: var(--blue-4) !important;
+    border: none !important;
+}
+
+/* Filter button group */
+.filter-btn-group {
+    display: flex;
+    width: auto;
+    gap: 2px;
+    margin-bottom: var(--gutter-sm);
+}
+
+/* Disabled filter */
+.filter-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Begin BPM filter */
+
+.filter-bpm-range {
+    background-color: var(--surface-3);
+}
+
+.filter-range-split {
+    display: flex;
+    gap: var(--gutter-sm);
+}
+
+.filter-range-split p {
+    font-size: var(--font-size-sm);
+    padding-left: 0 !important;
+}
+
+.filter-range-split * {
+    width: 50%;
+    border-radius: var(--gutter-sm);
+    border: none;
+    padding: var(--gutter-sm);
+}
+
+.filter-bpm-exact {
+    background-color: var(--surface-3);
+}
+
+.filter-bpm-exact input {
+    border: none;
+    border-radius: var(--gutter-sm);
+    padding: var(--gutter-sm);
+    width: calc(100% - var(--gutter-sm) * 2);
+}
+
+/* End BPM filter */
+
+/* Begin Key filter */
+.filter-key-selector {
+    background-color: var(--surface-3);
+}
+
+.keys-upper, .keys-lower {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gutter-sm);
+}
+
+.keys-upper {
+    width: 80% !important;
+    margin-left: 8%;
+    margin-bottom: var(--gutter-md);
+}
+
+.key {
+    /* overuse of importants bc of the button modifiers */
+    border: 1px solid var(--gray-1) !important;
+    flex-grow: 1 !important;
+    font-size: var(--font-size-sm) !important;
+}
+
+.major-minor-key {
+    margin-bottom: 0 !important;
+    margin-top: var(--gutter-md) !important;
+}
+
+.major-minor-key * {
+    border: 1px solid var(--gray-1) !important;
+}
+
+/* End Key filter */
+@media screen and (max-width: 900px) {
+    .filter-panel {
+        width: calc(100% - var(--gutter-md)*2);
+        transform: translateX(var(--gutter-md));
+        padding: 0;
+        border: none;
+        position: static;
+        margin-top: var(--gutter-lg);
+        margin-bottom: var(--gutter-lg);
+    }
+}

@@ -1,0 +1,57 @@
+.limit-container {
+    /* importants used to override the surface class */
+    padding: var(--gutter-lg) !important;
+    margin: var(--gutter-lg) !important;
+    margin-top: 0 !important;
+
+    width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-sm);
+}
+
+.limit-container button {
+    border: none;
+    background: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: var(--gutter-sm);
+    font-size: var(--font-size-md);
+    padding: var(--gutter-sm);
+    border-radius: var(--gutter-sm);
+    cursor: pointer;
+    opacity: .7;
+}
+
+.limit-container button:hover {
+    opacity: 1;
+}
+
+.lc-selected {
+    background-color: var(--blue-4) !important;
+    color: white;
+    opacity: 1 !important;
+}
+
+@media screen and (max-width: 900px) {
+    .limit-container {
+        width: auto;
+        flex-direction: row;
+        height: 40px;
+        justify-content: space-between;
+        padding: var(--gutter-md) !important;
+    }
+
+    .limit-container button {
+        flex-grow: 1;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .limit-container button span {
+        display: none;
+    }
+}

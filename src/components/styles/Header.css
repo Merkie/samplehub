@@ -1,0 +1,46 @@
+header {
+  width: auto;
+  padding: var(--gutter-lg);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  text-decoration: none;
+  color: white;
+  /* font-weight: bold; */
+  font-size: var(--font-size-lg);
+  font-weight: 700 !important;
+}
+
+.brand span {
+  background-color: var(--blue-4);
+  padding: var(--gutter-sm);
+  margin-left: var(--gutter-sm);
+  border-radius: var(--gutter-sm);
+  color: var(--black);
+}
+
+.header-items {
+  display: flex;
+  gap: var(--gutter-md);
+  align-items: center;
+}
+
+.header-items * {
+  text-decoration: none;
+  color: white;
+  font-size: var(--font-size-md);
+}
+
+.signup-btn {
+  border: none;
+  padding: var(--gutter-md);
+  background-color: var(--blue-4);
+  border-radius: var(--gutter-sm);
+  cursor: pointer;
+}

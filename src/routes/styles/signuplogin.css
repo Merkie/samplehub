@@ -1,0 +1,81 @@
+.signup {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.signup-form {
+	margin: 0 !important;
+	width: min(calc(100% - var(--gutter-lg) * 4), 400px);
+	display: flex;
+	flex-direction: column;
+	padding: var(--gutter-lg) !important;
+}
+
+.link {
+    color: var(--blue-4);
+    text-decoration: underline;
+    margin-top: var(--gutter-md);
+}
+
+.signup-form input {
+	padding: var(--gutter-sm);
+	margin-bottom: var(--gutter-md);
+	margin-top: var(--gutter-sm);
+	background-color: var(--black);
+	border: 1px solid var(--surface-3);
+	border-radius: var(--gutter-sm);
+	color: white;
+	font-size: 16px !important;
+}
+
+.signup-form p {
+	font-weight: 300;
+}
+
+.brand {
+	text-decoration: none;
+	font-size: var(--font-size-lg);
+	font-weight: 700 !important;
+    margin-bottom: var(--gutter-md);
+}
+
+a {
+    text-decoration: none;
+}
+
+.signup-form button {
+    padding: var(--gutter-md);
+    margin-top: var(--gutter-md);
+    background-color: var(--blue-4);
+    border-radius: var(--gutter-sm);
+    color: white;
+    border: none;
+    font-size: 16px !important;
+    cursor: pointer;
+}
+
+.signin-message {
+    font-size: 20px;
+    font-weight: 200;
+    margin-top: var(--gutter-md);
+    margin-bottom:  50px;
+}
+
+.brand span {
+	background-color: var(--blue-4);
+	padding: var(--gutter-sm);
+	margin-left: var(--gutter-sm);
+	border-radius: var(--gutter-sm);
+	color: var(--black);
+}
+
+small {
+    color: var(--gray-5);
+    font-weight:300;
+    padding: var(--gutter-sm);
+    padding-left: 0;
+
+}

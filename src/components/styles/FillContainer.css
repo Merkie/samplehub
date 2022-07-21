@@ -1,0 +1,106 @@
+.fill-container {
+    /* importants used to override the surface class */
+    /* padding: var(--gutter-lg) !important; */
+    padding: 0 !important;
+    margin: 0 var(--gutter-lg) var(--gutter-lg) 0 !important;
+    
+    flex-grow: 1;
+    height: calc(100vh - var(--gutter-lg) - 95px);
+    
+    position: relative;
+
+    overflow: auto;
+}
+
+.container-header {
+    /* fancy CSS to determine width, dont touch it lol */
+    width: calc(100% - var(--gutter-sm)*4 - 250px - var(--gutter-lg));
+    padding: var(--gutter-md);
+    border-bottom: 1px solid var(--surface-3);
+    display: flex;
+    gap: var(--gutter-md);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search {
+    padding: var(--gutter-sm);
+    font-size: var(--font-size-md);
+    border-radius: 100px;
+    border: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: var(--gutter-sm);
+    width: min(calc(100% - 90px), 450px)
+}
+
+.search input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: var(--gutter-sm);
+}
+
+.search svg {
+    color: var(--surface-1);
+}
+
+.controls-btn {
+    padding: var(--gutter-sm) calc(var(--gutter-sm) + 2px);
+    border-radius: 100%;
+    border: none;
+    background-color: white;
+    border: 1px solid var(--surface-3);
+    filter: drop-shadow(0px 0px 1px black);
+    color: black;
+    cursor: pointer;
+    display: none;
+}
+
+.navigation-btns {
+    width:70px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation-btns button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: fit-content;
+    color: white !important;
+}
+
+.page-title-mobile {
+    padding: var(--gutter-md);
+    border-bottom: 1px solid var(--surface-3);
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .controls-btn {
+        display: block;
+    }
+
+    .filter-wrapper {
+        display: none;
+    }
+
+    .fill-container {
+        margin: 0 var(--gutter-lg) var(--gutter-lg) var(--gutter-lg) !important;
+        height: calc(100vh - var(--gutter-lg) - 180px);
+    }
+
+    .container-header {
+        width: calc(100% - var(--gutter-lg));
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .page-title-mobile {
+        display: block;
+    }
+}

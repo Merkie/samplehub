@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+}
+
+:root {
+  --black: #111418;
+  --surface-1: #1C2127;
+  --surface-2: #252A31;
+  --surface-3: #2F343C;
+  --surface-4: #383E47;
+  --surface-5: #404854;
+  --gray-1: #5F6B7C;
+  --gray-5: #C5CBD3;
+  --blue-3: #2D72D2; /* Brand color */
+  --blue-4: #2D72D2;
+
+  --red-1: #8E292C;
+  --red-4: #CD4246;
+
+  --gutter-lg: 20px;
+  --gutter-md: 10px;
+  --gutter-sm: 5px;
+
+  --font-size-lg: 35px;
+  --font-size-md: 16px;
+  --font-size-sm: 12px;
+
+  --transition-duration: .1s;
+
+  background-color: var(--black);
+  color: white;
+}
+
+body {
+  font-family: Helvetica Neue, sans-serif;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.surface {
+    margin: var(--gutter-md);
+    padding: var(--gutter-md);
+    background-color: var(--surface-1);
+    border-radius: var(--gutter-sm);
+    border: 1px solid var(--surface-2);
+    filter: drop-shadow(0px 0px 1px black);
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+}
