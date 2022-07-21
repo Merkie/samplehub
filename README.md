@@ -2,8 +2,6 @@
 
 A full stack sample and preset sharing website written in TypeScript.
 
-## Creating a project
-
 ## Developing
 
 Once cloned the project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
