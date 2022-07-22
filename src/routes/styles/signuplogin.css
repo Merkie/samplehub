@@ -79,3 +79,7 @@ small {
     padding-left: 0;
 
 }
+
+.errorMessage {
+    color: #E76A6E;
+}

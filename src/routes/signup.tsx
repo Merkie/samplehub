@@ -5,13 +5,20 @@ import { Link } from "solid-app-router";
 // Password strength checker
 import { passwordStrength } from "check-password-strength";
 
+// API
+import { createUser } from '../lib/api';
+
 // Styles
 import "./styles/index.css";
 import "./styles/signuplogin.css";
 
 export default function Signup() {
+	// For the password strength detector
 	const [pwordStrength, setPwordStrength] = createSignal("");
     const [pwordMessageColor, setPwordMessageColor] = createSignal("#EC9A3C");
+
+	// For the error message if something goes wrong
+	const [errorMessage, setErrorMessage] = createSignal("");
 
 	function checkPasswordStrength(e: Event) {
 		const userPassword: string = (e.target as HTMLInputElement).value;
@@ -24,6 +31,26 @@ export default function Signup() {
 		setPwordStrength(strength);
 	}
 
+	function submitUserCreation() {
+		// setErrorMessage("Passwords don't match.")
+
+		const userEmail: string = (document.getElementById("email") as HTMLInputElement).value;
+		const userAuthentication: string = (document.getElementById("password") as HTMLInputElement).value;
+		const userAuthenticationConfirm: string = (document.getElementById("password_confirm") as HTMLInputElement).value;
+
+		// Error handling, if password and confirm password dont match
+		if(userAuthentication != userAuthenticationConfirm) {
+			setErrorMessage("Error: Passwords don't match.");
+			return;
+		}
+
+		// Error handling, if email exists in database
+		// TODO
+
+		// Create user
+		createUser(userEmail, userAuthentication);
+	}
+
 	return (
 		<main class="signup">
 			<Link href="/">
@@ -34,15 +61,18 @@ export default function Signup() {
 			<p class="signin-message">Create a SampleHub account</p>
 			<div class="signup-form surface">
 				<p>Email address</p>
-				<input type="text" />
+				<input id="email" type="text" />
 				<p>Password</p>
 				<Show when={pwordStrength().length > 1}>
 					<small>Password strength: <span style={{color: pwordMessageColor()}}>{pwordStrength()}</span></small>
 				</Show>
-				<input value="" onInput={checkPasswordStrength} type="password" />
+				<input id="password" onInput={checkPasswordStrength} type="password" />
 				<p>Repeat Password</p>
-				<input type="password" />
-				<button>Sign up</button>
+				<input id="password_confirm" type="password" />
+				<Show when={errorMessage().length > 1}>
+					<small class="errorMessage">{errorMessage()}</small>
+				</Show>
+				<button onClick={submitUserCreation}>Sign up</button>
 			</div>
 			<Link href="/login">
 				<p class="link">Already have an account?</p>
