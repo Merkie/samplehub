@@ -1,3 +1,8 @@
+/*
+    --- Prop Types ---
+    This file contains all the types needed to initialize/interface with component props.
+*/
+
 import { Accessor, Setter } from "solid-js";
 import { Page } from './specifc';
 
@@ -8,4 +13,11 @@ export interface ILimitContainerProps {
 
 export interface IFillContainerProps {
     selectedPage: Accessor<Page>;
+}
+
+export interface IFilter {
+    type: FilterType;
+    range: [number, number];
+    key: KeyType;
+    scale: string;
 }
