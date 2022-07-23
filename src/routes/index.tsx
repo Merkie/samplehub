@@ -5,7 +5,7 @@ import { createSignal } from "solid-js";
 import "./styles/index.css";
 
 // Types
-import { Page } from "../types";
+import { Page } from "../types/specifc";
 
 // Components
 import Header from "~/components/Header";

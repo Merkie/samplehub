@@ -5,7 +5,7 @@ import { Component, createSignal, Show, createEffect } from "solid-js";
 import "./styles/FilterPanel.css";
 
 // Types
-import { KeyType, BpmType, FilterType, IFilter } from "../types";
+import { KeyType, BpmType, FilterType, IFilter } from "../types/specifc";
 
 const FilterPanel: Component = () => {
 	const [filterType, setFilterType] = createSignal(FilterType.all);

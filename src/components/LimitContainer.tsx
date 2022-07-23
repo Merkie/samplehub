@@ -2,7 +2,8 @@
 import "./styles/LimitContainer.css";
 
 // Types
-import { ILimitContainerProps, Page } from "../types";
+import { ILimitContainerProps } from "../types/props";
+import { Page } from "../types/specifc";
 
 // Icons
 import { Icon } from "solid-heroicons";

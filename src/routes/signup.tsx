@@ -31,7 +31,7 @@ export default function Signup() {
 		setPwordStrength(strength);
 	}
 
-	function submitUserCreation() {
+	async function submitUserCreation() {
 		// setErrorMessage("Passwords don't match.")
 
 		const userEmail: string = (document.getElementById("email") as HTMLInputElement).value;
@@ -48,7 +48,7 @@ export default function Signup() {
 		// TODO
 
 		// Create user
-		createUser(userEmail, userAuthentication);
+		console.log(await createUser(userEmail, userAuthentication));
 	}
 
 	return (

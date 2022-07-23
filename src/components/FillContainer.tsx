@@ -8,7 +8,8 @@ import "./styles/FillContainer.css";
 import FilterPanel from "./FilterPanel";
 
 // Types
-import { IFillContainerProps, Page } from "../types";
+import { IFillContainerProps } from "../types/props";
+import { Page } from "../types/specifc";
 
 // Icons
 import { Icon } from "solid-heroicons";
