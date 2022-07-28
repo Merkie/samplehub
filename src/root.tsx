@@ -3,6 +3,7 @@ import { Links, Meta, Routes, Scripts } from "solid-start/root";
 import { ErrorBoundary } from "solid-start/error-boundary";
 import { Suspense } from "solid-js";
 import Header from "./components/Header";
+import SessionProvider from "./routes/providers/SessionProvider";
 
 export default function Root() {
 	return (
@@ -17,7 +18,9 @@ export default function Root() {
 			<body>
 				<ErrorBoundary>
 					<Suspense>
-						<Routes />
+						<SessionProvider>
+							<Routes />
+						</SessionProvider>
 					</Suspense>
 				</ErrorBoundary>
 				<Scripts />

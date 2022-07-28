@@ -14,10 +14,3 @@ export interface ILimitContainerProps {
 export interface IFillContainerProps {
     selectedPage: Accessor<Page>;
 }
-
-export interface IFilter {
-    type: FilterType;
-    range: [number, number];
-    key: KeyType;
-    scale: string;
-}

@@ -6,7 +6,7 @@ import { Link } from "solid-app-router";
 import { passwordStrength } from "check-password-strength";
 
 // API
-import { createUser } from '../lib/api';
+import { createUser, checkUserExistence, createSession } from '~/lib/api';
 
 // Styles
 import "./styles/index.css";
@@ -35,20 +35,31 @@ export default function Signup() {
 		// setErrorMessage("Passwords don't match.")
 
 		const userEmail: string = (document.getElementById("email") as HTMLInputElement).value;
-		const userAuthentication: string = (document.getElementById("password") as HTMLInputElement).value;
-		const userAuthenticationConfirm: string = (document.getElementById("password_confirm") as HTMLInputElement).value;
+		const userPassword: string = (document.getElementById("password") as HTMLInputElement).value;
+		const userPasswordConfirm: string = (document.getElementById("password_confirm") as HTMLInputElement).value;
 
 		// Error handling, if password and confirm password dont match
-		if(userAuthentication != userAuthenticationConfirm) {
+		if(userPassword != userPasswordConfirm) {
 			setErrorMessage("Error: Passwords don't match.");
 			return;
 		}
 
 		// Error handling, if email exists in database
-		// TODO
+		if(await checkUserExistence(userEmail)) {
+			setErrorMessage("Error: User already exists with that email.");
+			return;
+		}
 
 		// Create user
-		console.log(await createUser(userEmail, userAuthentication));
+		
+		var user = await createUser(userEmail, userPassword);
+
+		console.log(user);
+
+		var session = await createSession(user.id);
+
+		console.log(session);
+
 	}
 
 	return (
