@@ -18,8 +18,6 @@ model User {
 
 model Session {
   id    String     @id @default(uuid())
-  userId String @unique
+  userId String
   access_token String @default(uuid())
-  refresh_token String @default(uuid())
-  expires_in Int @default(3600)
 }

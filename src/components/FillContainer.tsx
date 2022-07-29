@@ -8,7 +8,6 @@ import "./styles/FillContainer.css";
 import FilterPanel from "./FilterPanel";
 
 // Types
-import { IFillContainerProps } from "../types/props";
 import { Page } from "../types/specifc";
 
 // Icons
@@ -16,17 +15,18 @@ import { Icon } from "solid-heroicons";
 import { search, adjustments } from "solid-heroicons/solid";
 import {chevronRight, chevronLeft} from "solid-heroicons/outline";
 
-const FillContainer: Component<IFillContainerProps> = (props) => {
+import { selectedPage } from "~/routes/index";
+
+const FillContainer: Component = () => {
 	const [controlsVisible, setControlsVisible] = createSignal(false);
 
 	return (
 		<div class="fill-container surface">
 			<div class="page-title-mobile">
-				<h2>{props.selectedPage()}</h2>
+				<h2>{selectedPage()}</h2>
 			</div>
 			{/* Search Page */}
-			
-			<Show when={props.selectedPage() == Page.Search}>
+			<Show when={selectedPage() == Page.Search}>
 				<div class="container-header">
 					<div class="search">
 						<Icon width="16px" path={search} />

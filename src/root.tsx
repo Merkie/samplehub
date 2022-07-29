@@ -2,10 +2,13 @@
 import { Links, Meta, Routes, Scripts } from "solid-start/root";
 import { ErrorBoundary } from "solid-start/error-boundary";
 import { Suspense } from "solid-js";
-import Header from "./components/Header";
-import SessionProvider from "./routes/providers/SessionProvider";
+
+// For the local storage, session information
+import { createStorage } from "@solid-primitives/storage";
+export const [store, setStore] = createStorage({ prefix: 'samplehub' });
 
 export default function Root() {
+
 	return (
 		<html lang="en">
 			<head>
@@ -18,9 +21,7 @@ export default function Root() {
 			<body>
 				<ErrorBoundary>
 					<Suspense>
-						<SessionProvider>
-							<Routes />
-						</SessionProvider>
+						<Routes />
 					</Suspense>
 				</ErrorBoundary>
 				<Scripts />

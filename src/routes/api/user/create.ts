@@ -22,9 +22,15 @@ export const post = async ({ request }: { request: Request }) => {
         },
     });
 
-    // Delete the authentication for security
-    delete user.authentication;
-    
-    // return the user
-    return json(user);
+    // Make the session object
+    const session = await prisma.session.create({
+        data: {
+            userId: user.id
+        },
+    });
+
+    delete user.authentication; // Delete authentication
+
+    // Return the user and session
+    return json({user: user, session: session});
 };

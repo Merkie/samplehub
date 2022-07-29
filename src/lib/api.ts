@@ -1,4 +1,4 @@
-import { IUserCreate, IUserExists, ISessionCreate, IUserMe } from "~/types/api";
+import { IUserCreate, IUserExists, ISessionCreate, IUserMe, IUserLogin } from "~/types/api";
 
 async function _post(route: string, body: object) {
     var response = await fetch(route, {
@@ -35,6 +35,15 @@ export async function me(access_token: string) {
     };
 
     return await _post('/api/user/me', meObject);
+}
+
+export async function login(email: string, password: string) {
+    var loginObject: IUserLogin = {
+        email: email,
+        password: password
+    };
+
+    return await _post('/api/user/login', loginObject);
 }
 
 // Creates a new session (access token, refresh token, etc)

@@ -24,7 +24,7 @@ const FilterPanel: Component = () => {
             scale: isMajor() ? "major" : "minor",
         }
 
-        console.log(filter);
+        // console.log(filter);
     }) 
 
     function handleBPMRangeChange() {

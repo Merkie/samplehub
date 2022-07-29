@@ -41,5 +41,5 @@ export const post = async ({ request }: { request: Request }) => {
 	delete user.authentication;
 
     // Send the user back to the client
-	return user;
+	return json(user);
 };
